@@ -12,6 +12,7 @@ formEmpresa.addEventListener('submit', (e) => {
 
     heads = new Headers();
 
+    // POST
     fetch('https://localhost:44379/usuario', {
         method: 'POST',
         body: JSON.stringify({
@@ -37,14 +38,14 @@ formEmpresa.addEventListener('submit', (e) => {
     .catch(error => {
         console.log(error);
     });
+
+    // GET
+    fetch('https://localhost:44379/usuario', {
+        method: 'GET'
+    })
+    .then(response => {
+        return response.json
+    }).then(data => {
+        console.log(data);
+    })
 });
-
-// GET
-
-// GET ID
-
-// POST
-
-// PUT
-
-// DELET

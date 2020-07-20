@@ -1,12 +1,14 @@
-const fEmpresa = document.getElementById('formTeste');
+const fTeste = document.getElementById('formTeste');
 
-formEmpresa.addEventListener('submit', (e) => {
+formTeste.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const idEmpresa = document.getElementById('id_empresa').value;
     const idUsuario = document.getElementById('id_usuario').value;
 
     heads = new Headers();
+
+    // POST
 
     fetch('https://localhost:44379/teste', {
         method: 'POST',
@@ -18,24 +20,29 @@ formEmpresa.addEventListener('submit', (e) => {
         credentials: 'same-origin', 
         headers: heads,
         mode: 'cors',
-    })
-    .then(response => {
+    }).then(response => {
         console.log('Response', response);
         return response.text();
-    })
-    .then(data => {
+    }).then(data => {
         console.log(data);
-    })
-    .catch(error => {
+    }).catch(error => {
         console.log(error);
     });
+
+    // GET
+    fetch('https://localhost:44379/teste', {
+        method: 'GET'
+    })
+    .then(response => {
+        return response.json
+    }).then(data => {
+        console.log(data);
+    })
+
 });
 
-// GET
 
 // GET ID
-
-// POST
 
 // PUT
 

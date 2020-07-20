@@ -12,31 +12,42 @@ formEmpresa.addEventListener('submit', (e) => {
 
     heads = new Headers();
 
+    // POST
+    // fetch('https://localhost:44379/empresa', {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         id_empresa: idEmpresa,
+    //         nomeEmpresa: nomeEmpresa,
+    //         email: email,
+    //         cnpj: cnpj,
+    //         dataCadastro: dataCadastro,
+    //         dataAtualizacao: dataAtualizacao
+    //     }),
+    //     cache: 'no-cache',
+    //     credentials: 'same-origin', 
+    //     headers: heads,
+    //     mode: 'cors',
+    // })
+    // .then(response => {
+    //     console.log('Response', response);
+    //     return response.text();
+    // })
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // });
+
+    // GET
     fetch('https://localhost:44379/empresa', {
-        method: 'POST',
-        body: JSON.stringify({
-            id_empresa: idEmpresa,
-            nomeEmpresa: nomeEmpresa,
-            email: email,
-            cnpj: cnpj,
-            dataCadastro: dataCadastro,
-            dataAtualizacao: dataAtualizacao
-        }),
-        cache: 'no-cache',
-        credentials: 'same-origin', 
-        headers: heads,
-        mode: 'cors',
+        method: 'GET'
     })
     .then(response => {
-        console.log('Response', response);
-        return response.text();
-    })
-    .then(data => {
+        return response.json
+    }).then(data => {
         console.log(data);
     })
-    .catch(error => {
-        console.log(error);
-    });
 });
 
 // GET
